@@ -1,0 +1,599 @@
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/variables';
+@import 'base/mixins';
+
+.header {
+    width: 100%;
+    height: 700px;
+    background: {
+        image: url('../images/Background.png');
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    }
+}
+.container {
+    width: 940px;
+    height: 100%;
+    margin: 0 auto;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+        margin: 49px 0 0 -3px;
+    }
+    &__logo-link {
+        @include text ($main-color-text, 'Montserrat-SemiBold', 19px);
+        text: {
+            decoration: none;
+            transform: uppercase;
+        }
+        letter-spacing: 0.9px;
+    }
+    &__input-registration {
+        display: flex;
+    }
+    &__log-in {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 89px;
+        height: 37px;
+        text-decoration: none;
+        margin: 41px -3px 0 0;
+        @include text ($main-color-text, 'Montserrat-Regular', 14px);
+        &_border:hover {
+            border: 3px solid $main-color-text;
+            border-radius: 17px;
+        }
+    }
+    &__sign-up {
+        @extend .head__log-in;
+        margin: 41px 41px 0 0;
+    }
+}
+.promo {
+    &__header {
+        width: 470px;
+        margin: 146px auto 0;
+        text-align: center;
+        @include text ($main-color-text, 'Montserrat-Bold', 52px);
+        line-height: 63px;
+    }
+    &__text {
+        text-align: center;
+        @include text (#F7F3F2, 'Roboto-Light', 24px);
+        margin-top: 28px;
+    }
+    &__button {
+        display: block;
+        width: 225px;
+        height: 40px;
+        margin: 35px auto 0;
+        background: $main-color;
+        border: none;
+        border-radius: 40px;
+        @include text ($main-color-text, 'Montserrat-Bold', 14px);
+    }
+}
+.main {
+    width: 100%;
+}
+.how-it-works {
+    margin: 0 auto;
+    &__header {
+        text-align: center;
+        margin: 93px 0 37px 0;
+        font: {
+            family: 'Montserrat-Bold';
+            size: 26px
+        }
+    }
+    &__steps {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__step1 {
+        width: 300px;
+        height: 400px;
+        padding: 21px 25px;
+        background-image: url('../images/Step\ 1\ image.png');
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    &__button {
+        display: block;
+        width: 70px;
+        height: 20px;
+        padding-left: 8px;
+        margin-bottom: 22px;
+        background: $main-color;
+        border: none;
+        border-radius: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        @include text ($main-color-text, 'Montserrat-Regular', 10px);
+        &_location {
+            padding-left: 6px;
+        }
+    }
+    &__head {
+        @include text ($main-color-text, 'Montserrat-Bold', 24px);
+        line-height: 26px;
+        margin-bottom: 23px;
+        &_location {
+            margin-bottom: 17px;
+        }
+    }
+    &__text {
+        @include text (#E3E3E3, 'Roboto-Light', 14px);
+    } 
+    &__step2 {
+        @extend .how-it-works__step1;
+        background-image: url('../images/Step\ 2\ image.png');
+    }
+    &__step3 {
+        @extend .how-it-works__step1;
+        background-image: url('../images/Step\ 3\ image.png');
+    }
+}
+
+.meet-partner {
+    margin: 0 auto;
+    &__header {
+        @extend .how-it-works__header;
+        margin: 93px 0 37px 2px;
+    }
+    &__persons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 42px;
+    }
+    &__person {
+        width: 221px;
+        text-align: center;
+    }
+    &__name {
+        @include text (#444444, 'Montserrat-Bold', 14px);
+        margin: 21px 0 22px 0;
+    }
+    &__description {
+        @include text (#666666, 'Roboto-Light', 14px);
+    }
+    &__button {
+        @extend .promo__button;
+        width: 180px;
+        background: $main-color-text;
+        color: $main-color;
+        border: 2px solid $main-color;
+    }
+}
+
+.ideas {
+    margin: 0 auto;
+    &__header {
+        @extend .how-it-works__header;
+        margin: 92px 0 37px 0;
+    }
+    &__variants {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+    &__sport {
+        height: 310px;
+        background-image: url('../images/Sport.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__wellness {
+        @extend .ideas__sport;
+        background-image: url('../images/Health.png');
+    }
+    &__extreme {
+        @extend .ideas__sport;
+        background-image: url('../images/Extreme.png');
+    }
+    &__games {
+        @extend .ideas__sport;
+        background-image: url('../images/Games.png');
+    }
+    &__culture {
+        grid-column: 2 / 4;
+        @extend .ideas__sport;
+        background-image: url('../images/Culture.png');
+    }
+    &__relax {
+        grid-column: 1 / 3;
+        @extend .ideas__sport;
+        background-image: url('../images/Relax.png');
+    }
+    &__trevel {
+        @extend .ideas__sport;
+        background-image: url('../images/Trevel.png');
+    }
+    &__text {
+        @include text ($main-color-text, 'Montserrat-Bold', 22px);
+        line-height: 27px;
+        text-align: center;
+    }
+}
+
+.interests {
+    width: 482px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    &__header {
+        @extend .how-it-works__header;
+        margin: 92px 1px 54px 0;
+    }
+    &__text {
+        @include text (#666666, 'Roboto-Light', 18px);
+        text-align: center;
+        margin-bottom: 23px;
+    }
+    &__input {
+        width: 284px;
+        height: 33px;
+        padding: 3px 0 0 12px;
+        border: 1px solid #D4D4D4;
+        @include text (#999999, 'Roboto-Light', 14px);
+    }
+    &__button {
+        @extend .promo__button;
+        display: inline;
+        width: 172px;
+        height: 40px;
+        margin: 0 0 0 5px;
+        padding-left: 12px;
+    }
+}
+hr {
+    height: 2px;
+    background-color: $main-color;
+    color: $main-color;
+    border: none;
+}
+
+.footer {
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.logo-link {
+    @include text ($main-color, 'Montserrat-Regular', 15px);
+    text-decoration: none;
+    margin: 31px 0 0 -2px;
+    letter-spacing: 0.8px;
+}
+.company {
+    margin: 33px 0 0 5px;
+    &__text {
+        @include text (#444444, 'Montserrat-Bold', 14px);
+        margin-bottom: 12px;
+    }
+    &__item {
+        @include text (black, 'Roboto-Light', 14px);
+        line-height: 26px;
+    }
+    &__link {
+        text-decoration: none;
+        color: #999999;
+    }
+}
+.partners {
+    padding: 33px 0 0 9px;
+    @extend .company__text;
+}
+.designed {
+    justify-self: self-end; 
+    margin: 32px -4px 0 0;
+    &__text {
+        @include text (#CCCCCC, 'Montserrat-Bold', 10px);
+        letter-spacing: 1px;
+        text-align: end;
+        margin-bottom: 8px;
+    }
+    &__image {
+        margin-right: 3px;
+    }
+}
+
+
+@media screen and (max-width: 970px) {
+    .container {
+        width: 844px;
+    }
+    .how-it-works {
+        &__step1 {
+            width: 268px;
+        }
+    }
+}
+
+@media screen and (max-width: 864px) {
+    .container {
+        width: 748px;
+    }
+    .head {
+        &__logo {
+            margin-left: 37px;
+        }
+        &__sign-up {
+            margin-right: 40px;
+        }
+    }
+    .how-it-works {
+        &__header {
+            margin: 97px 0 37px 1px;
+            font-size: 22px;
+        }
+        &__step1 {
+            width: 236px;
+            padding: 16px 20px;
+        }
+        &__button {
+            margin-bottom: 45px;
+        }
+        &__head {
+            line-height: 14px;
+            margin-bottom: 28px;
+            &_location {
+                margin-bottom: 22px;
+            }
+        }
+    }
+    .meet-partner {
+        width: 510px;
+        &__header {
+            margin: 98px 0 37px;
+        }
+        &__persons {
+            height: 462px;
+            align-items: center;
+            flex-flow: column wrap;
+            margin-bottom: 42px;
+        }
+        &__person {
+            width: 236px;
+        }
+    }
+    .ideas {
+        &__text {
+            padding: 0 15px;
+        }
+    }
+    .interests {
+        margin-bottom: 100px;
+        &__header {
+            margin: 97px 0 0 3px;
+        }
+        &__text {
+            margin: 53px 0 0 4px;
+        }
+        &__search-form {
+            margin: 24px 0 0 2px;
+        }
+    }
+    .logo-link {
+        margin: 30px 0 0 29px;
+    }
+    .company {
+        justify-self: self-end;
+        margin: 31px 5px 0 0;
+    }
+    .partners {
+        justify-self: center;
+        padding: 31px 19px 0 0;
+    }
+    .designed {
+        justify-self: center; 
+        margin: 30px 0 0 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        width: 320px;
+        height: 540px;
+        margin: 0 auto;
+        background: {
+            image: url('../images/Background_M.png');
+        }
+    }
+    .container {
+        width: 300px;
+    }
+    .head {
+        flex-direction: column-reverse;
+        margin: 0;
+        &__logo {
+            margin-right: 13px;
+            text-align: center;
+        }
+        &__input-registration {
+            justify-content: center;
+            margin: 0 23px 50px 0;
+        }
+        &__log-in {
+            margin: 20px 0 0 0;
+        }
+        &__sign-up {
+            margin: 20px 0 0 0;
+        }
+    }
+    .promo {
+        &__header {
+            margin: 30px auto 0 19px;
+            width: 281px;
+            @include text ($main-color-text, 'Montserrat-Bold', 30px);
+            line-height: 36px;
+            margin-bottom: 7px;
+        }
+        &__text {
+            width: 250px;
+            margin: 0 auto 0 35px;
+            @include text (#F7F3F2, 'Roboto-Light', 18px);
+            line-height: 24px;
+        }
+        &__button {
+            width: 280px;
+            margin: 16px auto 0 21px;
+        }
+    }
+    .how-it-works {
+        &__header {
+            margin: 36px 0 18px 0;
+        }
+        &__steps {
+            flex-direction: column;
+        }
+        &__step1 {
+            width: 300px;
+            height: 240px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            background-image: url('../images/Step1_m.png');
+        }
+        &__button {
+            margin-bottom: 46px;
+        }
+        &__head {
+            margin-bottom: 24px;
+        }
+        &__text {
+            width: 250px;
+        }
+        &__step2 {
+            background-image: url('../images/Step2_m.png');
+        }
+        &__step3 {
+            background-image: url('../images/Step3_m.png');
+        }
+    }
+    .meet-partner {
+        width: 300px;
+        &__header {
+            margin: 26px 0 16px;
+            line-height: 26px;
+        }
+        &__persons {
+            height: auto;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin-bottom: 26px;        
+        }
+        &__person {
+            margin-bottom: 16px;
+            &_location {
+                order: 1;
+            }
+        }
+        &__button {
+            margin: 0 auto;
+        }
+    }
+    .ideas {
+        &__header {
+            margin-bottom: 0;
+            padding: 0 10px;
+            line-height: 26px;
+        }
+        &__variants {
+            margin-top: 32px;
+            grid-template-columns: 300px;
+            grid-gap: 11px;
+        }
+        &__sport {
+            height: 120px;
+            background-image: url('../images/Sport_m.png');
+        }
+        &__wellness {
+            background-image: url('../images/Health_m.png');
+        }
+        &__extreme {
+            background-image: url('../images/Extreme_m.png');
+        }
+        &__games {
+            background-image: url('../images/Games_m.png');
+        }
+        &__culture {
+            grid-column: auto;
+            background-image: url('../images/Culture_m.png');
+        }
+        &__relax {
+            grid-column: auto;
+            background-image: url('../images/Relax_m.png');
+        }
+        &__trevel {
+            background-image: url('../images/Trevel_m.png');
+        }
+        &__text {
+            padding: 0;
+        }
+    }
+    .interests {
+        width: 280px;
+        margin-bottom: 39px;
+        &__header {
+            margin: 31px 0 0;
+            line-height: 27px;
+        }
+        &__text {
+            margin: 17px 0 0 3px;
+        }
+        &__search-form {
+            margin: 13px 0 0 2px;
+        }
+        &__input {
+            width: 263px;
+            height: 33px;
+        }
+        &__button {
+            margin: 12px 0 0 0;
+        }
+    }
+    hr {
+        width: 320px;
+    }
+    .footer {
+        grid-template-columns: 280px;
+        justify-items: center;
+    }
+    .logo-link {
+        margin: 15px 0 0 23px;
+    }
+    .company {
+        justify-self: center;
+        margin: 16px 0 0;
+        &__text {
+            text-align: center;
+            margin: 0 0 3px 20px;
+        }
+        &__info {
+            padding: 0 30px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        &__item {
+            display: inline;
+            margin: 0 5px;
+        }
+    }
+    .partners {
+        padding: 0;
+        margin: 8px 0 0 19px;
+    }
+    .designed {
+        margin: 15px 0 0 23px;
+        &__text {
+            margin-right: 15px;
+        }
+    }
+}
